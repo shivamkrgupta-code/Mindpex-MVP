@@ -3,37 +3,32 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts'
-import { Users, TrendingUp, Award, Target } from 'lucide-react'
+import { Users, TrendingUp, Award, Target, Database } from 'lucide-react'
+import { mockEmployeeData, isSupabaseConfigured } from '@/lib/supabase'
+import { useEffect, useState } from 'react'
 
-// Mock data for demonstration
-const performanceData = [
-  { name: 'Jan', performance: 85, potential: 78 },
-  { name: 'Feb', performance: 88, potential: 82 },
-  { name: 'Mar', performance: 92, potential: 85 },
-  { name: 'Apr', performance: 89, potential: 88 },
-  { name: 'May', performance: 94, potential: 90 },
-  { name: 'Jun', performance: 91, potential: 87 }
-]
-
-const competencyData = [
-  { name: 'Technical Skills', value: 85, color: '#8884d8' },
-  { name: 'Leadership', value: 72, color: '#82ca9d' },
-  { name: 'Communication', value: 68, color: '#ffc658' },
-  { name: 'Problem Solving', value: 91, color: '#ff7300' }
-]
-
-const nineBoxData = [
-  { performance: 85, potential: 78, name: 'John Doe', department: 'Engineering' },
-  { performance: 92, potential: 88, name: 'Jane Smith', department: 'Marketing' },
-  { performance: 78, potential: 85, name: 'Mike Johnson', department: 'Sales' },
-  { performance: 88, potential: 82, name: 'Sarah Wilson', department: 'HR' }
-]
+// Use mock data for demonstration
+const performanceData = mockEmployeeData.performanceTrend
+const competencyData = mockEmployeeData.competencyData
+const nineBoxData = mockEmployeeData.nineBoxData
 
 export default function Dashboard() {
+  const [isConnected, setIsConnected] = useState(false)
+
+  useEffect(() => {
+    setIsConnected(isSupabaseConfigured())
+  }, [])
+
   return (
     <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
       <div className="flex items-center justify-between space-y-2">
         <h2 className="text-3xl font-bold tracking-tight">Employee Analytics Dashboard</h2>
+        <div className="flex items-center space-x-2">
+          <Database className="h-4 w-4" />
+          <span className={`text-sm ${isConnected ? 'text-green-600' : 'text-orange-600'}`}>
+            {isConnected ? 'Supabase Connected' : 'Demo Mode'}
+          </span>
+        </div>
       </div>
       
       {/* Key Metrics Cards */}
@@ -44,7 +39,7 @@ export default function Dashboard() {
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">1,234</div>
+            <div className="text-2xl font-bold">{mockEmployeeData.totalEmployees.toLocaleString()}</div>
             <p className="text-xs text-muted-foreground">+12% from last month</p>
           </CardContent>
         </Card>
@@ -55,7 +50,7 @@ export default function Dashboard() {
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">87.5%</div>
+            <div className="text-2xl font-bold">{mockEmployeeData.avgPerformance}%</div>
             <p className="text-xs text-muted-foreground">+2.3% from last month</p>
           </CardContent>
         </Card>
@@ -66,7 +61,7 @@ export default function Dashboard() {
             <Award className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">156</div>
+            <div className="text-2xl font-bold">{mockEmployeeData.promotionReady}</div>
             <p className="text-xs text-muted-foreground">+8% from last month</p>
           </CardContent>
         </Card>
@@ -77,7 +72,7 @@ export default function Dashboard() {
             <Target className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">23.2%</div>
+            <div className="text-2xl font-bold">{mockEmployeeData.competencyGap}%</div>
             <p className="text-xs text-muted-foreground">-1.2% from last month</p>
           </CardContent>
         </Card>
