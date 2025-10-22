@@ -5,8 +5,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Mindpex MVP',
-  description: 'Mindpex MVP Application',
+  title: 'MindPex - Talent Intelligence Platform',
+  description: 'Talent Intelligence Platform for employee analytics and performance tracking',
 }
 
 export default function RootLayout({
@@ -15,8 +15,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="dark">
+      <body className={`${inter.className} bg-gray-900 text-white`}>{children}</body>
     </html>
   )
 }
