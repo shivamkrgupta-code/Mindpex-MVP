@@ -1,0 +1,21 @@
+# Supabase Environment Variables Configuration
+# Copy these variables to your .env.local file
+
+# Database URL (Transaction Mode Pooler Connection String)
+DATABASE_URL=postgresql://postgres.lmogwfwmmtpxfdrwfjar:[YOUR-PASSWORD]@aws-1-ap-south-1.pooler.supabase.com:6543/postgres
+
+# Supabase Project URL (replace with your actual project URL)
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
+
+# Supabase Anon Key (replace with your actual anon key)
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+
+# Supabase Service Role Key (for server-side operations)
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
+
+# Instructions:
+# 1. Create a .env.local file in your project root
+# 2. Copy the above variables to your .env.local file
+# 3. Replace [YOUR-PASSWORD] with your actual database password
+# 4. Replace the placeholder values with your actual Supabase project details
+# 5. Make sure .env.local is in your .gitignore (it already is)
