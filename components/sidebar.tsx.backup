@@ -9,13 +9,7 @@ import {
   Users,
   TrendingUp,
   ChevronLeft,
-  ChevronRight,
-  Brain,
-  Zap,
-  Grid3x3,
-  ShieldAlert,
-  Lightbulb,
-  Award
+  ChevronRight
 } from 'lucide-react'
 
 const navigation = [
@@ -23,12 +17,6 @@ const navigation = [
   { name: 'Competency Models', href: '/competency', icon: Target },
   { name: 'Employee Directory', href: '/employees', icon: Users },
   { name: 'Succession/Risk', href: '/succession', icon: TrendingUp },
-  { name: 'AI Insights', href: '/dashboard/ai-insights', icon: Brain },
-  { name: 'Skills Optimizer', href: '/dashboard/skills-optimizer', icon: Zap },
-  { name: 'Retain/Detain Grid', href: '/dashboard/retain-detain', icon: Grid3x3 },
-  { name: 'Risk Parameters', href: '/dashboard/risk-parameters', icon: ShieldAlert },
-  { name: 'Strategic Insights', href: '/dashboard/strategic-insights', icon: Lightbulb },
-  { name: 'Top Learners', href: '/dashboard/top-learners', icon: Award },
 ]
 
 export default function Sidebar() {

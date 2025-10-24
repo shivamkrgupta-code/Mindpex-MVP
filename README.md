@@ -1,57 +1,60 @@
-# Mindpex MVP - Employee Analytics Platform
+# Mindpex Talent Intelligence Platform
 
-A comprehensive Next.js application for employee performance analytics, competency tracking, and talent management with Supabase backend integration.
+A comprehensive Next.js application for employee performance analytics, competency tracking, talent management, and AI-powered workforce insights with Supabase backend integration.
 
 ## 🚀 Project Overview
 
-Mindpex MVP is a modern employee analytics platform built with Next.js 13, TypeScript, and Supabase. It provides comprehensive tools for tracking employee performance, competency gaps, and talent development through advanced analytics and visualization.
+Mindpex is a modern talent intelligence platform built with Next.js 13, TypeScript, and Supabase. It provides comprehensive tools for tracking employee performance, competency gaps, talent development, AI-powered attrition predictions, and strategic workforce planning through advanced analytics and visualization with a premium dark black and golden theme.
 
 ## 📋 Table of Contents
 
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
+- [Pages & Navigation](#pages--navigation)
 - [Database Schema](#database-schema)
+- [Design System](#design-system)
 - [Setup Instructions](#setup-instructions)
 - [Environment Configuration](#environment-configuration)
-- [Database Migrations](#database-migrations)
-- [API Documentation](#api-documentation)
 - [Development Workflow](#development-workflow)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
+- [Recent Updates](#recent-updates)
 
 ## ✨ Features
 
 ### Core Functionality
-- **Employee Management**: Comprehensive employee data tracking and management
+- **Employee Management**: Comprehensive employee data tracking and management (1470+ employees)
 - **Performance Analytics**: Advanced performance rating and analysis tools
 - **Competency Tracking**: Skill gap analysis and competency development tracking
 - **Nine-Box Grid**: Talent assessment and succession planning visualization
-- **Role-Based Access Control**: Secure multi-level access management
+- **AI-Powered Insights**: Machine learning-driven attrition predictions and risk analytics
+- **Strategic Planning**: Workforce optimization and cost savings recommendations
+- **Training Programs**: Comprehensive learning pathways with ROI metrics
 - **Real-time Analytics**: Live performance dashboards and insights
 
-### Analytics Features
-- **Competency Gap Analysis**: Automated calculation of skill gaps
-- **Promotion Readiness Assessment**: AI-powered readiness evaluation
-- **Performance Trend Analysis**: Historical performance tracking
-- **Talent Pipeline Management**: Succession planning and development paths
+### Advanced Analytics
+- **AI Attrition Predictions**: Risk segmentation (Imminent/Likely/Possible/Stable)
+- **Skills Optimizer**: Ratio analysis and cost optimization ($355K+ savings potential)
+- **Retain/Detain Grid**: 9-grid strategic talent segmentation matrix
+- **Risk Parameters**: Comprehensive methodology documentation
+- **Industry Benchmarks**: Performance comparison across KPIs
+- **Top Learners Leaderboard**: Training engagement tracking (top 50 employees)
 
 ### User Interface
-- **Modern Design**: Clean, responsive UI built with Tailwind CSS
+- **Premium Dark Theme**: Pure black (#000000, #1a1a1a, #2a2a2a) with signal gold accents (#B58342, #d4a05a)
+- **Glass Morphism**: Backdrop blur effects and transparency
+- **Modern Landing Page**: White "Mindpex" branding with golden tagline
 - **Component Library**: Comprehensive Radix UI component system
-- **Dark/Light Mode**: Theme switching capabilities
 - **Interactive Dashboards**: Real-time data visualization with Recharts
-- **Form Management**: Advanced form handling with React Hook Form
+- **AI Assistant**: Floating chat with golden theme for HR queries
 
 ## 🛠 Tech Stack
 
 ### Frontend
-- **Framework**: Next.js 13.5.1
+- **Framework**: Next.js 13.5.1 (App Router)
 - **Language**: TypeScript 5.2.2
 - **Styling**: Tailwind CSS 3.3.3
 - **UI Components**: Radix UI (Complete component library)
 - **Charts**: Recharts 2.12.7
-- **Forms**: React Hook Form 7.53.0
 - **Icons**: Lucide React 0.446.0
 - **Date Handling**: date-fns 3.6.0
 
@@ -70,389 +73,327 @@ Mindpex MVP is a modern employee analytics platform built with Next.js 13, TypeS
 
 ## 📁 Project Structure
 
-```
+\`\`\`
 Mindpex-MVP-main/
-├── components.json              # Radix UI component configuration
-├── next.config.js              # Next.js configuration
-├── package.json                 # Dependencies and scripts
-├── tailwind.config.ts           # Tailwind CSS configuration
-├── tsconfig.json                # TypeScript configuration
-├── postcss.config.js            # PostCSS configuration
-├── supabase-config.txt          # Environment variables template
-├── README.md                    # This file
-├── supabase/                    # Supabase configuration
-│   ├── config.toml             # Supabase local development config
-│   └── migrations/             # Database migration files
-│       ├── 20251021123636_remote_schema.sql
-│       ├── 20251021143218_remote_schema.sql
-│       ├── 20251021143737_remote_schema.sql
-│       └── 20251022060026_remote_schema.sql
-└── node_modules/                # Dependencies
-```
+├── app/
+│   ├── page.tsx                        # Landing page (hero, features)
+│   ├── layout.tsx                      # Root layout with dark theme
+│   ├── globals.css                     # Global styles (black + gold)
+│   ├── dashboard/
+│   │   ├── page.tsx                   # Main dashboard
+│   │   ├── layout.tsx                 # Dashboard layout with sidebar
+│   │   ├── ai-insights/
+│   │   │   └── page.tsx              # AI attrition predictions
+│   │   ├── skills-optimizer/
+│   │   │   └── page.tsx              # Skills ratio & cost optimization
+│   │   ├── retain-detain/
+│   │   │   └── page.tsx              # 9-grid talent matrix
+│   │   ├── risk-parameters/
+│   │   │   └── page.tsx              # Risk methodology docs
+│   │   ├── strategic-insights/
+│   │   │   └── page.tsx              # Planning + training programs
+│   │   └── top-learners/
+│   │       └── page.tsx              # Training leaderboard (top 50)
+│   ├── competency/
+│   │   ├── page.tsx                   # Competency models
+│   │   └── layout.tsx
+│   ├── employees/
+│   │   ├── page.tsx                   # Employee directory
+│   │   └── layout.tsx
+│   └── succession/
+│       ├── page.tsx                   # Succession planning
+│       └── layout.tsx
+├── components/
+│   ├── sidebar.tsx                    # Navigation (10 items)
+│   ├── header.tsx                     # Top header bar
+│   ├── FloatingChat.tsx               # AI assistant (golden theme)
+│   ├── BenchmarkSystem.tsx            # Industry benchmarks
+│   ├── SkillsTraining.tsx             # Training programs
+│   ├── AttritionInsights.tsx          # AI predictions
+│   ├── SkillRatioComparison.tsx       # Skills optimizer
+│   ├── RetainDetainGrid.tsx           # 9-grid matrix
+│   ├── RiskParameters.tsx             # Risk parameters
+│   ├── EmployeeDialog.tsx             # Employee modal
+│   └── ui/                            # Reusable components
+├── lib/
+│   └── supabase.ts                    # Supabase client
+├── supabase/
+│   ├── config.toml                    # Supabase config
+│   └── migrations/                    # Database migrations
+├── components.json                     # Radix UI config
+├── next.config.js                      # Next.js config
+├── tailwind.config.ts                  # Tailwind config
+├── package.json                        # Dependencies
+└── README.md                           # This file
+\`\`\`
+
+## 🗺 Pages & Navigation
+
+### Main Navigation
+1. **Dashboard** - Overview with key metrics, high-risk employees, competency trends, industry benchmarks
+2. **Competency Models** - Role requirements and skills heatmap
+3. **Employee Directory** - Searchable employee database with filtering
+4. **Succession/Risk** - 9-box talent grid and promotion readiness
+
+### Advanced Analytics (Sidebar)
+5. **AI Insights** - Machine learning attrition predictions (Imminent/Likely/Possible/Stable risk distribution)
+6. **Skills Optimizer** - Upskilling analysis, ratio comparison, cost savings recommendations
+7. **Retain/Detain Grid** - 9-box strategic talent segmentation with retain/develop/monitor/detain actions
+8. **Risk Parameters** - Comprehensive risk assessment methodology documentation
+
+### Learning & Development (Sidebar)
+9. **Strategic Insights** - Workforce planning recommendations + 4 training programs (Technical, Leadership, Certifications, Sales)
+10. **Top Learners** - Leaderboard of top 50 employees ranked by training engagement (Elite/Advanced/Active tiers)
 
 ## 🗄 Database Schema
 
 ### Core Tables
 
 #### `employees`
-Primary employee data table with comprehensive employee information:
-- `employee_number` (Primary Key)
-- `job_level`, `job_role`, `department`
-- `education`, `education_field`
-- `performance_rating`, `business_travel`, `over_time`
-- `attrition`, `monthly_income`, `hourly_rate`
-- `age`, `gender`, `marital_status`
-- `years_at_company`, `years_in_current_role`
-- `competency_gap_score`, `potential_score`
-- `promotion_readiness_flag`
+Comprehensive employee data (1470+ records):
+- Demographics: EmployeeNumber, Age, Gender, MaritalStatus
+- Job Info: JobRole, JobLevel, Department, BusinessTravel
+- Performance: PerformanceRating, JobSatisfaction, JobInvolvement
+- Compensation: MonthlyIncome, HourlyRate, StockOptionLevel
+- Work-Life: WorkLifeBalance, EnvironmentSatisfaction, OverTime
+- Development: TrainingTimesLastYear, Education, EducationField
+- Tenure: YearsAtCompany, YearsInCurrentRole, YearsSinceLastPromotion
+- Attrition: Attrition flag
 
 #### `job_roles`
-Job role definitions and management:
-- `role_id` (Primary Key)
-- `role_name` (Unique)
+Job role definitions and management
 
 #### `target_competencies`
-Competency requirements for different roles:
-- `target_id` (Primary Key)
-- `role_id` (Foreign Key to job_roles)
-- `competency_name`
-- `required_level` (1-5 scale)
-- `user_id` (Foreign Key to auth.users)
+Competency requirements for different roles
 
 #### `user_roles`
-User access control and permissions:
-- `user_id` (Primary Key, Foreign Key to auth.users)
-- `app_role` (administrator, viewer, employee)
+User access control (administrator, viewer, employee)
 
-### Database Functions
+### Key Database Functions
 
-#### `calculate_competency_gap(employee_id)`
-Calculates competency gap scores for employees based on:
-- Current role requirements
-- Employee's experience and involvement
-- Performance metrics
+- calculate_competency_gap(employee_id) - Skill gap calculations
+- check_promotion_readiness(employee_id) - Promotion evaluation
+- set_target_competency_user_id() - Trigger for user ID assignment
 
-#### `check_promotion_readiness(employee_id)`
-Evaluates promotion readiness based on:
-- Competency gap scores (≥80% threshold)
-- Performance ratings
-- Potential score classification
+### Security
+Comprehensive Row Level Security (RLS) policies for administrators, viewers, employees, and public access.
 
-#### `set_target_competency_user_id()`
-Trigger function that automatically assigns user IDs to competency records.
+## 🎨 Design System
 
-### Views
+### Color Palette
 
-#### `nine_box_grid_all`
-Complete employee data for nine-box grid analysis.
+**Primary Colors:**
+- Pure Black: #000000 (main backgrounds)
+- Dark Black: #1a1a1a (secondary backgrounds)
+- Medium Black: #2a2a2a (tertiary backgrounds)
+- Signal Gold: #B58342 (primary accent)
+- Light Gold: #d4a05a (secondary accent)
 
-#### `nine_box_grid_data_v2`
-Advanced analytics view with:
-- Income percentile calculations
-- Performance-based potential scoring
-- Promotion readiness assessment
+**UI Elements:**
+- Borders: Golden with 20-30% opacity
+- Glass cards: bg-black/40 backdrop-blur-xl
+- Gradients: from-[#B58342] to-[#d4a05a]
+- Text: White, slate-300, slate-400
 
-#### `nine_box_grid_data`
-Simplified view for frontend consumption.
+**Navigation:**
+- Active state: Golden background
+- Hover state: White 10% opacity
+- Sidebar: Black gradient with golden border
 
-### Security Policies
-
-Comprehensive Row Level Security (RLS) policies for:
-- **Administrators**: Full access to all employee data
-- **Viewers**: Read-only access to employee data
-- **Employees**: Access to their own data only
-- **Public**: Limited access to job roles
+### Landing Page
+- White "Mindpex" branding
+- Golden "Retention Intelligence Platform" tagline
+- Animated hero metrics
+- Golden CTA buttons
 
 ## ⚙️ Setup Instructions
 
 ### Prerequisites
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
-- Supabase CLI
+- Supabase account
 - Git
 
 ### Installation
 
 1. **Clone the repository**
-   ```bash
+   \`\`\`bash
    git clone <repository-url>
    cd Mindpex-MVP-main
-   ```
+   \`\`\`
 
 2. **Install dependencies**
-   ```bash
+   \`\`\`bash
    npm install
-   ```
+   \`\`\`
 
-3. **Set up Supabase**
-   ```bash
-   # Install Supabase CLI (if not already installed)
-   npm install -g supabase
-   
-   # Initialize Supabase (if not already done)
-   supabase init
-   
-   # Start local development
-   supabase start
-   ```
-
-4. **Configure environment variables**
-   ```bash
-   # Copy the template
+3. **Configure environment variables**
+   \`\`\`bash
+   # Create .env.local file
    cp supabase-config.txt .env.local
-   
-   # Edit .env.local with your actual values
-   ```
 
-5. **Run database migrations**
-   ```bash
-   supabase db push
-   ```
+   # Edit with your Supabase credentials
+   \`\`\`
 
-6. **Start development server**
-   ```bash
+4. **Set up Supabase database**
+   - Go to https://supabase.com
+   - Create a new project
+   - Run the SQL migrations from supabase/migrations/
+   - Or use the seed-data.sql file for quick setup
+
+5. **Start development server**
+   \`\`\`bash
    npm run dev
-   ```
+   \`\`\`
+
+6. **Access the application**
+   - Landing page: http://localhost:3000
+   - Dashboard: http://localhost:3000/dashboard
 
 ## 🔧 Environment Configuration
 
-### Required Environment Variables
+Create a .env.local file:
 
-Create a `.env.local` file with the following variables:
-
-```env
-# Database URL (Transaction Mode Pooler Connection String)
-DATABASE_URL=postgresql://postgres.lmogwfwmmtpxfdrwfjar:[YOUR-PASSWORD]@aws-1-ap-south-1.pooler.supabase.com:6543/postgres
-
+\`\`\`env
 # Supabase Project URL
 NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
 
-# Supabase Anon Key (for client-side operations)
+# Supabase Anon Key (client-side)
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
 
-# Supabase Service Role Key (for server-side operations)
+# Supabase Service Role Key (server-side)
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
-```
 
-### Supabase Configuration
-
-The project includes a comprehensive Supabase configuration in `supabase/config.toml`:
-
-- **API**: Port 54321 with public and graphql_public schemas
-- **Database**: PostgreSQL 17 on port 54322
-- **Studio**: Supabase Studio on port 54323
-- **Auth**: JWT-based authentication with 1-hour expiry
-- **Storage**: 50MiB file size limit
-- **Realtime**: Enabled for live updates
-
-## 🗃 Database Migrations
-
-### Migration History
-
-1. **20251021123636_remote_schema.sql** - Initial schema
-   - Core tables (employees, job_roles, target_competencies, user_roles)
-   - Database functions and triggers
-   - RLS policies and security
-
-2. **20251021143218_remote_schema.sql** - Security updates
-   - Enhanced security policies
-   - Audit logging improvements
-   - Permission refinements
-
-3. **20251021143737_remote_schema.sql** - Additional features
-   - Extended functionality
-   - Performance optimizations
-
-4. **20251022060026_remote_schema.sql** - Latest updates
-   - Final schema refinements
-   - Production-ready optimizations
-
-### Migration Commands
-
-```bash
-# Apply all migrations
-supabase db push
-
-# Check migration status
-supabase migration list
-
-# Repair migration history (if needed)
-supabase migration repair --status applied <migration_id>
-
-# Reset database
-supabase db reset
-```
-
-## 📊 API Documentation
-
-### Supabase Client Usage
-
-```typescript
-import { createClient } from '@supabase/supabase-js'
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
-
-// Fetch employees
-const { data: employees } = await supabase
-  .from('employees')
-  .select('*')
-
-// Calculate competency gap
-const { data } = await supabase
-  .rpc('calculate_competency_gap', { employee_id: 123 })
-
-// Check promotion readiness
-const { data } = await supabase
-  .rpc('check_promotion_readiness', { employee_id: 123 })
-```
-
-### Key API Endpoints
-
-- **Employees**: `/api/employees` - CRUD operations
-- **Analytics**: `/api/analytics` - Performance metrics
-- **Competencies**: `/api/competencies` - Skill tracking
-- **Reports**: `/api/reports` - Generated reports
+# Database URL (Transaction Mode Pooler)
+DATABASE_URL=postgresql://postgres.xxx:password@aws-0-region.pooler.supabase.com:6543/postgres
+\`\`\`
 
 ## 🔄 Development Workflow
 
 ### Available Scripts
 
-```bash
+\`\`\`bash
 # Development
-npm run dev          # Start development server
+npm run dev          # Start dev server (localhost:3000)
 npm run build        # Build for production
 npm run start        # Start production server
 npm run lint         # Run ESLint
-npm run typecheck    # Run TypeScript checks
 
-# Supabase
+# Supabase (if using local development)
 supabase start       # Start local Supabase
 supabase stop        # Stop local Supabase
-supabase status      # Check status
-supabase db pull     # Pull remote schema
-supabase db push     # Push local changes
-```
+supabase db push     # Push schema changes
+\`\`\`
 
 ### Development Guidelines
 
 1. **Code Style**: Follow ESLint configuration
 2. **Type Safety**: Use TypeScript for all new code
 3. **Components**: Use Radix UI components when possible
-4. **Styling**: Use Tailwind CSS classes
-5. **Database**: Always use migrations for schema changes
-6. **Security**: Implement proper RLS policies
-
-## 🚀 Deployment
-
-### Production Build
-
-```bash
-# Build the application
-npm run build
-
-# Start production server
-npm run start
-```
-
-### Supabase Deployment
-
-```bash
-# Deploy to Supabase
-supabase db push
-
-# Link to production project
-supabase link --project-ref <your-project-ref>
-
-# Deploy migrations
-supabase db push
-```
-
-### Environment Setup
-
-1. Configure production environment variables
-2. Set up Supabase project
-3. Run database migrations
-4. Deploy to your hosting platform
-
-## 🤝 Contributing
-
-### Development Setup
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-### Code Standards
-
-- Use TypeScript for all new code
-- Follow existing code style
-- Add tests for new features
-- Update documentation as needed
-- Ensure all migrations are tested
+4. **Styling**: Use Tailwind CSS with theme colors (#000000, #B58342)
+5. **Database**: Test queries with pagination (1000 records/request)
+6. **Navigation**: All dashboard pages should be in /app/dashboard/ folder
 
 ## 📝 Recent Updates
 
-### Latest Changes (October 2025)
+### Color Scheme Transformation (October 2024)
+- **Complete Theme Migration**: Changed from teal/blue to pure black + signal gold
+- **All Pages Updated**: 10+ pages redesigned with consistent premium theme
+- **Landing Page**: White "Mindpex" branding + golden tagline
+- **Glass Morphism**: Backdrop blur effects across all cards
+- **Component Updates**: All 8+ major components redesigned
 
-1. **Database Schema Fixes**
-   - Fixed SQL syntax errors in migration files
-   - Standardized column naming conventions
-   - Updated function definitions and triggers
+### Dashboard Reorganization
+- **6 Sections Moved**: Relocated major sections to dedicated sidebar pages
+- **70% Clutter Reduction**: Cleaner main dashboard with core metrics only
+- **Logical Grouping**: Analytics, learning & development sections organized
+- **Single Sidebar**: Fixed double sidebar issue with proper layout inheritance
 
-2. **Security Enhancements**
-   - Improved RLS policies
-   - Enhanced user role management
-   - Better access control implementation
+### New Pages Added
+1. **AI Insights** - Attrition predictions with risk segmentation (4 tiers)
+2. **Skills Optimizer** - Ratio analysis, cost optimization ($355K+ savings)
+3. **Retain/Detain Grid** - 9-box talent matrix with strategic actions
+4. **Risk Parameters** - Comprehensive methodology documentation
+5. **Strategic Insights** - Workforce planning + 4 training programs combined
+6. **Top Learners** - Expanded leaderboard with 50 employees (Elite/Advanced/Active tiers)
 
-3. **Performance Optimizations**
-   - Optimized database queries
-   - Improved function performance
-   - Enhanced view definitions
-
-4. **Migration History Repair**
-   - Synchronized local and remote migrations
-   - Fixed migration history mismatches
-   - Ensured proper schema deployment
+### Enhanced Components
+- **AI Assistant**: Floating chat with golden theme for HR queries
+- **Industry Benchmarks**: Performance comparison across multiple KPIs
+- **Training Programs**: 4 programs (Technical, Leadership, Certifications, Sales)
+- **ROI Metrics**: Investment calculations, productivity gains, retention impact
+- **Tiered Learners**: Visual rankings with gold/silver/bronze styling
 
 ## 🔒 Security Features
 
 - **Row Level Security (RLS)**: Comprehensive data access control
-- **JWT Authentication**: Secure user authentication
+- **JWT Authentication**: Secure user authentication via Supabase
 - **Role-Based Access**: Multi-level permission system
-- **Data Validation**: Input sanitization and validation
-- **Audit Logging**: Comprehensive activity tracking
+- **Data Pagination**: 1000 records per request to prevent memory issues
+- **Environment Variables**: All sensitive credentials secured
 
 ## 📈 Performance Features
 
-- **Optimized Queries**: Efficient database operations
-- **Caching**: Strategic data caching
-- **Real-time Updates**: Live data synchronization
-- **Responsive Design**: Mobile-first approach
-- **Fast Loading**: Optimized bundle sizes
+- **Code Splitting**: Each page loads independently
+- **Client-Side Rendering**: 'use client' for interactive components
+- **Data Pagination**: Efficient fetching (1000 employees per request)
+- **Lazy Loading**: Components load on demand
+- **Caching**: Supabase client caches queries
 
-## 🎯 Future Roadmap
+## 🎯 Key Metrics & Analytics
 
-- [ ] Advanced analytics dashboard
-- [ ] Machine learning integration
-- [ ] Mobile application
-- [ ] API rate limiting
-- [ ] Advanced reporting features
-- [ ] Integration with HR systems
-- [ ] Automated insights generation
+### AI-Powered Insights
+- Risk scores: 0-100 scale
+- Segmentation: Imminent (70-100), Likely (50-69), Possible (30-49), Stable (0-29)
+- Predicted attrition timeline by quarter
+- Machine learning trend analysis
+
+### Cost Optimization
+- Potential annual savings: $355,542K+
+- Internal mobility vs. external hiring analysis
+- Training investment ROI: +23% productivity, -15% attrition
+- Upskilling gap analysis and cost projections
+
+### Training & Development
+- 4 comprehensive programs (12-16 weeks)
+- Skills covered: Python, ML, Cloud, Leadership, PMP, AWS, Scrum
+- Top 50 learners leaderboard
+- Elite (5+), Advanced (3-4), Active (1-2) tier system
+
+## 🤝 Contributing
+
+### Development Setup
+1. Fork the repository
+2. Create a feature branch
+3. Follow the design system (black + gold theme)
+4. Test thoroughly with 1470+ employee dataset
+5. Submit a pull request
+
+### Code Standards
+- Use TypeScript for all new code
+- Follow Tailwind CSS color palette
+- Use Radix UI components
+- Implement proper data pagination
+- Test with full employee dataset
 
 ## 📞 Support
 
 For support and questions:
-- Check the documentation
-- Review existing issues
-- Create a new issue with detailed information
-- Contact the development team
+- Check SETUP_INSTRUCTIONS.md for detailed setup guide
+- Review browser console for errors (F12)
+- Verify Supabase connection and credentials
+- Clear .next cache and rebuild if needed
+- Check that all dependencies are installed
+
+## 🚀 Deployment
+
+### Production Checklist
+1. Set environment variables in hosting platform
+2. Run npm run build to create production build
+3. Deploy to Vercel, Netlify, or preferred host
+4. Configure Supabase RLS policies for production
+5. Test all 10 pages with production data
+6. Verify sidebar navigation across all pages
 
 ---
-
-**Built with ❤️ using Next.js, TypeScript, and Supabase**
+**Mindpex Talent Intelligence Platform** - Predictive Workforce Analytics & Succession Planning

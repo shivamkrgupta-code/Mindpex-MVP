@@ -1,17 +1,17 @@
 import Sidebar from '@/components/sidebar'
 import Header from '@/components/header'
 
-export default function DashboardLayout({
+export default function CompetencyLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <div className="flex h-screen bg-gradient-to-br from-[#000000] via-[#1a1a1a] to-[#2a2a2a]">
+    <div className="flex h-screen bg-[#0a0b0f]">
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header />
-        <main className="flex-1 overflow-y-auto bg-gradient-to-br from-[#000000] via-[#1a1a1a] to-[#2a2a2a]">
+        <main className="flex-1 overflow-y-auto bg-[#0a0b0f]">
           {children}
         </main>
       </div>
