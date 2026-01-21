@@ -845,7 +845,7 @@ Generated from Mindpex Talent Intelligence Platform
                   <h3 className="text-white/60 font-medium text-[11px] uppercase tracking-wider mb-2">
                     Immediate Next Step
                   </h3>
-                  <p className="text-white/80 text-sm leading-relaxed">
+                  <p className="text-white/95 text-sm font-medium leading-relaxed">
                     {selectedIntervention.recommendedAction}
                   </p>
                 </div>
