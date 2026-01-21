@@ -1,48 +1,21 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import IntroSplash from '@/components/IntroSplash'
-import EntryTransition from '@/components/EntryTransition'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Mail, Lock, ArrowLeft, AlertCircle } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 
-export default function Home() {
+export default function LoginPage() {
   const router = useRouter()
-  const [splashComplete, setSplashComplete] = useState(false)
-  const [showLogin, setShowLogin] = useState(false)
-  const [loginSuccess, setLoginSuccess] = useState(false)
-  const [showSecondAnimation, setShowSecondAnimation] = useState(false)
-  const [skipSplash, setSkipSplash] = useState(false)
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-
-  // Check if we should skip splash (e.g., coming from logout)
-  useEffect(() => {
-    const shouldSkipSplash = sessionStorage.getItem('skipSplash') === 'true'
-    if (shouldSkipSplash) {
-      sessionStorage.removeItem('skipSplash')
-      setSkipSplash(true)
-      setSplashComplete(true)
-      setTimeout(() => setShowLogin(true), 50)
-    }
-  }, [])
-
-  const handleSplashComplete = async () => {
-    // Mark splash as complete immediately
-    setSplashComplete(true)
-
-    // Always show login form after splash animation
-    // Authentication check happens after user submits login form
-    setTimeout(() => setShowLogin(true), 50)
-  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -71,7 +44,7 @@ export default function Home() {
       })
 
       if (signInError) {
-        setError(signInError.message) // Shows "invalid credentials"
+        setError(signInError.message)
         setLoading(false)
         return
       }
@@ -81,10 +54,8 @@ export default function Home() {
         localStorage.setItem('isAuthenticated', 'true')
         localStorage.setItem('userEmail', formData.email)
 
-        // Trigger second animation instead of redirecting directly
-        setLoginSuccess(true)
-        setShowLogin(false)
-        setShowSecondAnimation(true)
+        // Redirect to dashboard
+        router.push('/today')
       } else {
         setError('Failed to create session')
         setLoading(false)
@@ -95,36 +66,15 @@ export default function Home() {
     }
   }
 
-  const handleSecondAnimationComplete = () => {
-    router.push('/today')
-  }
-
-  // Always show splash first (unless skipping due to logout)
-  if (!splashComplete && !skipSplash) {
-    return <IntroSplash onComplete={handleSplashComplete} />
-  }
-
-  // Show second animation after successful login
-  if (showSecondAnimation) {
-    return <EntryTransition onComplete={handleSecondAnimationComplete} />
-  }
-
-  // If login not ready yet, show matching background (no flash)
-  if (!showLogin) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-[#000000] via-[#1a1a1a] to-[#000000]" />
-    )
-  }
-
-  // After splash, show login form with fade-in animation
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#000000] via-[#1a1a1a] to-[#2a2a2a] animate-in fade-in duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-[#000000] via-[#1a1a1a] to-[#2a2a2a]">
       {/* Header */}
       <nav className="bg-[#000000]/90 backdrop-blur-xl border-b border-[#B58342]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
-          <div className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
+            <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5 text-[#B58342]" />
             <div className="text-xl sm:text-2xl font-bold text-white">Mindpex</div>
-          </div>
+          </Link>
         </div>
       </nav>
 

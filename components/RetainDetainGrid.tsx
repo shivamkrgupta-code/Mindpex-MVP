@@ -67,15 +67,15 @@ export default function RetainDetainGrid({ employees }: RetainDetainGridProps) {
 
   // Group by category
   const gridData = {
-    'high-high': { label: 'Top Talent', action: 'Retain & Promote', color: 'bg-green-600', borderColor: 'border-green-500', icon: Award, employees: [] as any[] },
-    'high-med': { label: 'Strong Performers', action: 'Retain & Develop', color: 'bg-green-500', borderColor: 'border-green-400', icon: TrendingUp, employees: [] as any[] },
-    'high-low': { label: 'Experts', action: 'Retain & Leverage', color: 'bg-blue-600', borderColor: 'border-blue-500', icon: CheckCircle, employees: [] as any[] },
-    'med-high': { label: 'High Potentials', action: 'Develop Urgently', color: 'bg-purple-600', borderColor: 'border-purple-500', icon: Target, employees: [] as any[] },
-    'med-med': { label: 'Core Contributors', action: 'Develop & Monitor', color: 'bg-blue-500', borderColor: 'border-blue-400', icon: Users, employees: [] as any[] },
-    'med-low': { label: 'Solid Performers', action: 'Monitor', color: 'bg-gray-600', borderColor: 'border-gray-500', icon: CheckCircle, employees: [] as any[] },
-    'low-high': { label: 'Rough Diamonds', action: 'Coach Intensively', color: 'bg-yellow-600', borderColor: 'border-yellow-500', icon: AlertTriangle, employees: [] as any[] },
-    'low-med': { label: 'Development Needed', action: 'Performance Plan', color: 'bg-orange-600', borderColor: 'border-orange-500', icon: AlertTriangle, employees: [] as any[] },
-    'low-low': { label: 'At Risk', action: 'Detain (Consider Exit)', color: 'bg-red-600', borderColor: 'border-red-500', icon: AlertTriangle, employees: [] as any[] }
+    'high-high': { label: 'Top Talent', action: 'Retain & Promote', color: 'bg-gradient-to-br from-green-400/80 via-green-500/60 to-green-600/80 shadow-2xl shadow-green-500/30', borderColor: 'border-green-400/70', icon: Award, employees: [] as any[] },
+    'high-med': { label: 'Strong Performers', action: 'Retain & Develop', color: 'bg-gradient-to-br from-green-300/80 via-green-400/60 to-green-500/80 shadow-2xl shadow-green-400/30', borderColor: 'border-green-300/70', icon: TrendingUp, employees: [] as any[] },
+    'high-low': { label: 'Experts', action: 'Retain & Leverage', color: 'bg-gradient-to-br from-blue-400/80 via-blue-500/60 to-blue-600/80 shadow-2xl shadow-blue-500/30', borderColor: 'border-blue-400/70', icon: CheckCircle, employees: [] as any[] },
+    'med-high': { label: 'High Potentials', action: 'Develop Urgently', color: 'bg-gradient-to-br from-purple-400/80 via-purple-500/60 to-purple-600/80 shadow-2xl shadow-purple-500/30', borderColor: 'border-purple-400/70', icon: Target, employees: [] as any[] },
+    'med-med': { label: 'Core Contributors', action: 'Develop & Monitor', color: 'bg-gradient-to-br from-blue-300/80 via-blue-400/60 to-blue-500/80 shadow-2xl shadow-blue-400/30', borderColor: 'border-blue-300/70', icon: Users, employees: [] as any[] },
+    'med-low': { label: 'Solid Performers', action: 'Monitor', color: 'bg-gradient-to-br from-gray-400/80 via-gray-500/60 to-gray-600/80 shadow-2xl shadow-gray-500/30', borderColor: 'border-gray-400/70', icon: CheckCircle, employees: [] as any[] },
+    'low-high': { label: 'Rough Diamonds', action: 'Coach Intensively', color: 'bg-gradient-to-br from-yellow-400/80 via-yellow-500/60 to-yellow-600/80 shadow-2xl shadow-yellow-500/30', borderColor: 'border-yellow-400/70', icon: AlertTriangle, employees: [] as any[] },
+    'low-med': { label: 'Development Needed', action: 'Performance Plan', color: 'bg-gradient-to-br from-orange-400/80 via-orange-500/60 to-orange-600/80 shadow-2xl shadow-orange-500/30', borderColor: 'border-orange-400/70', icon: AlertTriangle, employees: [] as any[] },
+    'low-low': { label: 'At Risk', action: 'Detain (Consider Exit)', color: 'bg-gradient-to-br from-red-400/80 via-red-500/60 to-red-600/80 shadow-2xl shadow-red-500/30', borderColor: 'border-red-400/70', icon: AlertTriangle, employees: [] as any[] }
   }
 
   // Populate grid data
@@ -104,26 +104,26 @@ export default function RetainDetainGrid({ employees }: RetainDetainGridProps) {
         </CardHeader>
         <CardContent>
           {/* Summary Stats */}
-          <div className="grid grid-cols-4 gap-4 mb-6">
-            <div className="bg-gradient-to-br from-green-600 to-green-700 border border-green-500 rounded-lg p-4 text-center">
-              <Award className="h-8 w-8 mx-auto mb-2 text-white" />
-              <p className="text-2xl font-bold text-white">{gridData['high-high'].employees.length}</p>
-              <p className="text-green-100 text-sm mt-1">Top Talent</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6">
+            <div className="bg-gradient-to-br from-green-400/80 via-green-500/60 to-green-600/80 shadow-2xl shadow-green-500/30 border border-green-400/60 rounded-lg p-3 sm:p-4 text-center">
+              <Award className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 text-white" />
+              <p className="text-xl sm:text-2xl font-bold text-white">{gridData['high-high'].employees.length}</p>
+              <p className="text-green-100 text-xs sm:text-sm mt-1">Top Talent</p>
             </div>
-            <div className="bg-gradient-to-br from-purple-600 to-purple-700 border border-purple-500 rounded-lg p-4 text-center">
-              <Target className="h-8 w-8 mx-auto mb-2 text-white" />
-              <p className="text-2xl font-bold text-white">{gridData['med-high'].employees.length}</p>
-              <p className="text-purple-100 text-sm mt-1">High Potentials</p>
+            <div className="bg-gradient-to-br from-purple-400/80 via-purple-500/60 to-purple-600/80 shadow-2xl shadow-purple-500/30 border border-purple-400/60 rounded-lg p-3 sm:p-4 text-center">
+              <Target className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 text-white" />
+              <p className="text-xl sm:text-2xl font-bold text-white">{gridData['med-high'].employees.length}</p>
+              <p className="text-purple-100 text-xs sm:text-sm mt-1">High Potentials</p>
             </div>
-            <div className="bg-gradient-to-br from-yellow-600 to-yellow-700 border border-yellow-500 rounded-lg p-4 text-center">
-              <AlertTriangle className="h-8 w-8 mx-auto mb-2 text-white" />
-              <p className="text-2xl font-bold text-white">{gridData['low-high'].employees.length + gridData['low-med'].employees.length}</p>
-              <p className="text-yellow-100 text-sm mt-1">Needs Development</p>
+            <div className="bg-gradient-to-br from-yellow-400/80 via-yellow-500/60 to-yellow-600/80 shadow-2xl shadow-yellow-500/30 border border-yellow-400/60 rounded-lg p-3 sm:p-4 text-center">
+              <AlertTriangle className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 text-white" />
+              <p className="text-xl sm:text-2xl font-bold text-white">{gridData['low-high'].employees.length + gridData['low-med'].employees.length}</p>
+              <p className="text-yellow-100 text-xs sm:text-sm mt-1">Needs Development</p>
             </div>
-            <div className="bg-gradient-to-br from-red-600 to-red-700 border border-red-500 rounded-lg p-4 text-center">
-              <AlertTriangle className="h-8 w-8 mx-auto mb-2 text-white" />
-              <p className="text-2xl font-bold text-white">{gridData['low-low'].employees.length}</p>
-              <p className="text-red-100 text-sm mt-1">At Risk</p>
+            <div className="bg-gradient-to-br from-red-400/80 via-red-500/60 to-red-600/80 shadow-2xl shadow-red-500/30 border border-red-400/60 rounded-lg p-3 sm:p-4 text-center">
+              <AlertTriangle className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 text-white" />
+              <p className="text-xl sm:text-2xl font-bold text-white">{gridData['low-low'].employees.length}</p>
+              <p className="text-red-100 text-xs sm:text-sm mt-1">At Risk</p>
             </div>
           </div>
 
@@ -280,27 +280,27 @@ export default function RetainDetainGrid({ employees }: RetainDetainGridProps) {
           </div>
 
           {/* Action Recommendations */}
-          <div className="bg-black/50 border border-[#B58342]/10 rounded-lg p-6">
-            <h4 className="text-white font-semibold mb-4 flex items-center">
-              <CheckCircle className="h-5 w-5 mr-2 text-green-500" />
+          <div className="bg-black/50 border border-[#B58342]/10 rounded-lg p-4 sm:p-6">
+            <h4 className="text-white font-semibold mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
+              <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-green-500" />
               Strategic Action Plan
             </h4>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
-                <h5 className="text-green-400 font-medium mb-2">🎯 Retain (Top Right)</h5>
-                <p className="text-gray-300 text-sm">
+            <div className="grid sm:grid-cols-3 gap-3 sm:gap-4">
+              <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 sm:p-4">
+                <h5 className="text-green-400 font-medium mb-2 text-xs sm:text-sm">🎯 Retain (Top Right)</h5>
+                <p className="text-gray-300 text-xs sm:text-sm">
                   Focus on retention strategies: competitive compensation, challenging projects, leadership opportunities, recognition programs.
                 </p>
               </div>
-              <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-4">
-                <h5 className="text-purple-400 font-medium mb-2">📈 Develop (Top Left & Middle)</h5>
-                <p className="text-gray-300 text-sm">
+              <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-3 sm:p-4">
+                <h5 className="text-purple-400 font-medium mb-2 text-xs sm:text-sm">📈 Develop (Top Left & Middle)</h5>
+                <p className="text-gray-300 text-xs sm:text-sm">
                   Invest in training, mentorship, stretch assignments, and career pathing to unlock potential and improve performance.
                 </p>
               </div>
-              <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4">
-                <h5 className="text-red-400 font-medium mb-2">⚠️ Detain (Bottom Left)</h5>
-                <p className="text-gray-300 text-sm">
+              <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-3 sm:p-4">
+                <h5 className="text-red-400 font-medium mb-2 text-xs sm:text-sm">⚠️ Detain (Bottom Left)</h5>
+                <p className="text-gray-300 text-xs sm:text-sm">
                   Implement performance improvement plans, consider role changes, or initiate managed exits for persistent underperformers.
                 </p>
               </div>

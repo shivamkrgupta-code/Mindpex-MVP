@@ -30,6 +30,8 @@ Mindpex is a modern talent intelligence platform built with Next.js 13, TypeScri
 - **Strategic Planning**: Workforce optimization and cost savings recommendations
 - **Training Programs**: Comprehensive learning pathways with ROI metrics
 - **Real-time Analytics**: Live performance dashboards and insights
+- **Priority Briefing (TODAY)**: Pattern-level interventions with recommended actions for HR teams
+- **Insights Dashboard**: Employee directory with detailed profiles and intervention tracking
 
 ### Advanced Analytics
 - **AI Attrition Predictions**: Risk segmentation (Imminent/Likely/Possible/Stable)
@@ -42,10 +44,13 @@ Mindpex is a modern talent intelligence platform built with Next.js 13, TypeScri
 ### User Interface
 - **Premium Dark Theme**: Pure black (#000000, #1a1a1a, #2a2a2a) with signal gold accents (#B58342, #d4a05a)
 - **Glass Morphism**: Backdrop blur effects and transparency
-- **Modern Landing Page**: White "Mindpex" branding with golden tagline
+- **Modern Landing Page**: Clean white "Mindpex" branding
+- **Animated Splash Screens**: Smooth entry animations with dual splash system
+- **iOS-Style Modals**: Frosted glass intervention action modals with detailed guidance
 - **Component Library**: Comprehensive Radix UI component system
 - **Interactive Dashboards**: Real-time data visualization with Recharts
-- **AI Assistant**: Floating chat with golden theme for HR queries
+- **Color-Coded Status System**: Visual feedback with dynamic borders (Blue=Started, Green=Completed, Yellow=Paused, Red=Deferred)
+- **Share Functionality**: Native sharing for intervention guidance to managers
 
 ## 🛠 Tech Stack
 
@@ -296,10 +301,29 @@ supabase db push     # Push schema changes
 
 ## 📝 Recent Updates
 
+### Latest Updates (January 2026)
+- **Authentication Flow**: Fixed login page to always appear after splash animation for all visitors
+- **Splash Animation**: Updated first animation with clean white "Mindpex" text (removed subtitle)
+- **TODAY Page Enhancements**:
+  - Added Share button in intervention modals for HR to share guidance with managers
+  - Implemented color-coded status system with dynamic borders and buttons
+  - Blue buttons/borders for "Started" interventions
+  - Green for "Completed" interventions
+  - Yellow for "Paused" interventions
+  - Red for "Deferred" interventions
+- **Modal Design Updates**:
+  - Typography-focused emphasis over color for "Why This Matters" section
+  - Green checkmarks for recommended actions
+  - Red dots (not backgrounds) for "What NOT to Do" warnings
+  - Neutralized "Immediate Next Step" section
+  - Single primary CTA for clearer action hierarchy
+- **Button Hierarchy**: Primary actions full-width, secondary actions de-emphasized below
+- **Visual Tone**: Calm interface without urgent animations
+
 ### Color Scheme Transformation (October 2024)
 - **Complete Theme Migration**: Changed from teal/blue to pure black + signal gold
 - **All Pages Updated**: 10+ pages redesigned with consistent premium theme
-- **Landing Page**: White "Mindpex" branding + golden tagline
+- **Landing Page**: White "Mindpex" branding
 - **Glass Morphism**: Backdrop blur effects across all cards
 - **Component Updates**: All 8+ major components redesigned
 
